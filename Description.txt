@@ -1,0 +1,8 @@
+GIven Problem statement is supervised binary classification task with an imbalanced dataset, which consisted of 33,050 data points and 43 columns, including 8 categorical and 35 numerical features. The majority of the data was missing in N25-N32 columns, so removed some columns due to multicollinearity and high missing value issues.
+
+To preprocess the data, Used simple imputer to fill in the missing values and one-hot encoding for categorical features. For numerical features, Used min-max scaler to normalize the data. Trained the model on three different algorithms: logistic regression, random forest, and XGBoost. Used grid search with cv5 to find the best hyperparameters for each model. Among these models, XGBoost performed best on the ROC-AUC metric, with hyperparameters n-estimators = 200 and max_depth = 2, indicating high bias and low variance. The AUC scores for both train and validation data were good.
+
+Identified the most important features using XGBoost's feature importance scores, which showed that index 10, 167, 2, and 25 were the top-performing features.
+
+Based on these findings, Concluded that XGBoost is the best model for this problem, with good performance on the ROC-AUC metric. Also identified the most important features for the model, which can help in further analysis and decision-making. It is important to note that the dataset is imbalanced, which may affect the performance of the model. Therefore, tried different techniques to balance the dataset, such as oversampling or undersampling, but  used weight per class to improve the performance further.
+auc on train is 0.8038 while on validation is 0.77
